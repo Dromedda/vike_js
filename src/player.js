@@ -5,6 +5,11 @@ let player = {
 	y : 0
 };
 
+let shadow = {
+	x : 0,
+	y : 0
+}; 
+
 let move_dir = {
 	x : 0,
 	y : 0
@@ -12,6 +17,7 @@ let move_dir = {
 
 let move_speed = 10; 
 let move_speed_og = move_speed;
+let facing_dir = 1; 
 
 function init() {
 	player.x = 200; 
@@ -26,13 +32,23 @@ function update() {
 		move_speed = move_speed_og * 0.7; 
 	}
 
+	if (move_dir.x != 0) facing_dir = -move_dir.x; 
+	
 	player.x += move_dir.x * move_speed; 
 	player.y += move_dir.y * move_speed;  
+
+	shadow.x += (player.x + (facing_dir * 16) - shadow.x) / 2; 
+	shadow.y += (player.y - shadow.y) / 2; 
 }
 
 function draw() {
-	r.DrawText("HELLO WORLD!", 100, 100, 32, r.BLACK); 
+  r.DrawRectangle(shadow.x, shadow.y, 64, 64, r.BLACK);  
 	r.DrawRectangle(player.x, player.y, 64, 64, r.MAROON); 
+
+	if (r.IsKeyDown(r.KEY_SPACE)) {
+		r.DrawText("Welcome To Vike :) \n and Raylib_js :)", player.x - 64, player.y - 80, 28, r.BLACK); 
+	}	
+	
 }
 
 // Export the functions for init, update and draw so that we can use it elsewhere.
