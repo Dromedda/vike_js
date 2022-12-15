@@ -1,27 +1,18 @@
 const r = require('raylib'); 
 
-let player = {
-	x : 0, 
-	y : 0
-};
-
-let shadow = {
-	x : 0,
-	y : 0
-}; 
-
-let move_dir = {
-	x : 0,
-	y : 0
-};
+// TODO: might wanna make a vec2 struct.
+let player   = { x : 0, y : 0 };
+let shadow   = { x : 0, y : 0 }; 
+let move_dir = { x : 0, y : 0 };
 
 let move_speed = 10; 
 let move_speed_og = move_speed;
 let facing_dir = 1; 
 
-function init() {
-	player.x = 200; 
-	player.y = 200; 
+// is called on initialization.
+function init(x, y) {
+	player.x = x;  
+	player.y = y; 
 }
 
 function update() {
@@ -32,6 +23,7 @@ function update() {
 		move_speed = move_speed_og * 0.7; 
 	}
 
+	// if we are moving diagonally.
 	if (move_dir.x != 0) facing_dir = -move_dir.x; 
 	
 	player.x += move_dir.x * move_speed; 
@@ -48,7 +40,6 @@ function draw() {
 	if (r.IsKeyDown(r.KEY_SPACE)) {
 		r.DrawText("Welcome To Vike :) \n and Raylib_js :)", player.x - 64, player.y - 80, 28, r.BLACK); 
 	}	
-	
 }
 
 // Export the functions for init, update and draw so that we can use it elsewhere.
