@@ -1,6 +1,7 @@
 const r = require('raylib');
 const scene = require('./comps/scene_handler.js'); 
-const main_scene = require("./src/scene_main.js"); 
+const main_scene = require('./src/scene_main.js'); 
+const intro_scene = require('./src/scene_intro.js'); 
 
 const screenWidth = 1400; 
 const screenHeight = 800;
@@ -10,8 +11,9 @@ function main() {
 	r.SetTargetFPS(60); 
 
 	// create and init the main scene.
+	scene.create("intro", intro_scene.init, intro_scene.update, intro_scene.draw); 
 	scene.create("main", main_scene.init, main_scene.update, main_scene.draw); 
-	scene.goto("main"); 
+	scene.goto("intro"); 
 
 	while(!r.WindowShouldClose()) {
   	// Main Update event ---

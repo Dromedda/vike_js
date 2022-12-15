@@ -19,11 +19,10 @@ function update() {
 	move_dir.x = (r.IsKeyDown(r.KEY_RIGHT) - r.IsKeyDown(r.KEY_LEFT)); 
 	move_dir.y = (r.IsKeyDown(r.KEY_DOWN) - r.IsKeyDown(r.KEY_UP)); 
 
-	if (move_dir.x != 0 && move_dir.y != 0) {
-		move_speed = move_speed_og * 0.7; 
-	}
-
 	// if we are moving diagonally.
+	if (move_dir.x != 0 && move_dir.y != 0)	move_speed = move_speed_og * 0.7;	
+
+	// set the facing direction based on the move direction 
 	if (move_dir.x != 0) facing_dir = -move_dir.x; 
 	
 	player.x += move_dir.x * move_speed; 

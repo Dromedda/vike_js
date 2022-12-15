@@ -1,8 +1,21 @@
 {
-	"dependencies": {
-
-	},
-	"scripts": {
-		"start": "node index.js"
-	}
+  "scripts": {
+    "start": "node main.js"
+  },
+  "name": "vike_js",
+  "version": "0.0.1",
+  "description": "a simple template for node-raylib",
+  "main": "main.js",
+  "devDependencies": {},
+  "keywords": [
+    "raylib",
+    "template",
+    "node",
+    "game",
+    "game",
+    "dev",
+    "vike"
+  ],
+  "author": "Erik Gustafsson",
+  "license": "MIT"
 }
