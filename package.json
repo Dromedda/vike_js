@@ -6,6 +6,9 @@
   "version": "0.0.1",
   "description": "a simple template for node-raylib",
   "main": "main.js",
+  "dependencies": {
+		"raylib": "*"
+  },
   "devDependencies": {},
   "keywords": [
     "raylib",

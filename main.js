@@ -1,4 +1,5 @@
 const r = require('raylib');
+
 const scene = require('./comps/scene_handler.js'); 
 const main_scene = require('./src/scene_main.js'); 
 const intro_scene = require('./src/scene_intro.js'); 
