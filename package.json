@@ -7,7 +7,7 @@
   "description": "a simple template for node-raylib",
   "main": "main.js",
   "dependencies": {
-		"raylib": "*"
+    "raylib": "*"
   },
   "devDependencies": {},
   "keywords": [
