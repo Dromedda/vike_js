@@ -38,9 +38,9 @@ function draw() {
 
  	if (v.check_collision2d(player, v.object_get('sensor'))) {
 		if (r.IsKeyDown(r.KEY_SPACE)) {
-   		r.DrawText("Carrying Something", player.x - 64, player.y - 80, 28, r.BLACK);
+   		r.DrawText("Carrying Something", player.x - player.width, player.y - player.height + 8, 28, r.BLACK);
 		} else {
-			r.DrawText("Hold Space to grab this thing", player.x - 64, player.y - 80, 28, r.BLACK);
+			r.DrawText("Hold Space to grab this thing", player.x - player.width, player.y - player.height + 8, 28, r.BLACK);
 		}
  	}
 	
