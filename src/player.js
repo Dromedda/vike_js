@@ -1,4 +1,4 @@
-const r = require('raylib'); 
+const r = require('raylib');
 
 // TODO: might wanna make a vec2 struct.
 let player   = { x : 0, y : 0 };
