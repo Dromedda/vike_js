@@ -21,4 +21,4 @@ function draw() {
   r.DrawText("VIKE In Node_Raylib", 400, 400, 48, r.MAROON); 
 }
 
-module.exports = {init, update, draw}; 
+module.exports = {init, update, draw};

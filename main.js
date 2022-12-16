@@ -26,7 +26,7 @@ function main() {
 		r.EndDrawing(); 
 	}
 	// Exit the application.
-	r.CloseWindow(); 
+	r.CloseWindow();
 }
 
 // call the main func

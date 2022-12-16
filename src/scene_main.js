@@ -1,4 +1,4 @@
-const r = require('raylib'); 
+const r = require('raylib');
 const player = require("./player.js"); 
 const firewood = require('./firewood.js'); 
 
@@ -18,4 +18,4 @@ function draw() {
 	firewood.draw(); 
 }
 
-module.exports = {init, update, draw}; 
+module.exports = {init, update, draw};

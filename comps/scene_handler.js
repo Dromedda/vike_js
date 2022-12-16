@@ -60,4 +60,4 @@ function get_scene(name) {
 	throw "Cant find the scene, that was being looked for. Scene looked for: " + name;
 }
 
-module.exports = {create, init, update, draw, goto}; 
+module.exports = {create, init, update, draw, goto};

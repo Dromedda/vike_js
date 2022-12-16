@@ -1,6 +1,6 @@
 const r = require('raylib'); 
 
-let firewood = { x : 0, y : 0, width : 32, height : 32 };
+let firewood = { x : 400, y : 200, width : 32, height : 32 };
 
 function init() {
 }
