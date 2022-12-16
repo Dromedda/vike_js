@@ -25,8 +25,8 @@ function check_collision2d(a, b) {
 	if (
   	a.x < b.x + b.width &&
   	a.x + a.width > b.x &&
-  	b.x < a.x + a.width &&
-  	b.x + b.width > a.x
+  	b.y < a.y + a.width &&
+  	b.y + b.width > a.y
 	) {
   	return true;
 	} else {

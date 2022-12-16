@@ -8,7 +8,8 @@ let move_dir = { x : 0, y : 0 };
 
 let move_speed = 10; 
 let move_speed_og = move_speed;
-let facing_dir = 1; 
+let facing_dir = 1;
+let isCarryingSomething = false;
 
 // is called on initialization.
 function init(p) {
@@ -49,7 +50,10 @@ function draw() {
  	if (v.check_collision2d(player, v.object_get('sensor'))) {
    	let draw_pos_x = player.x - player.width;
    	let draw_pos_y = player.y - player.height + 8;
-		if (r.IsKeyDown(r.KEY_SPACE)) {
+   	if (r.IsKeyPressed(r.KEY_SPACE)) {
+			isCarryingSomething = !isCarryingSomething;
+   	}
+		if (isCarryingSomething) {
 
   		r.DrawText(
     		"Carrying Something",
@@ -60,7 +64,7 @@ function draw() {
   		);
 		} else {
 			r.DrawText(
-  			"Hold Space to grab this thing",
+  			"Press Space to grab this thing",
   			draw_pos_x,
   			draw_pos_y,
   			28,
