@@ -4,8 +4,8 @@ const r = require('raylib');
 let sensor;
 let isCarried = false;
 
-function init(f) {
-  sensor = f; 
+function init(s) {
+  sensor = s; 
 }
 
 function update() {

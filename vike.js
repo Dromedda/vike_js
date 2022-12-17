@@ -21,6 +21,7 @@ function object_get(name) {
 	console.log("VIKE:: Cannot find object");
 }
 
+// TODO: Add optional Params for offsets for a's position
 function check_collision2d(a, b) {
 	if (
   	a.x < b.x + b.width &&

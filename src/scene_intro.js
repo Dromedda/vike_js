@@ -17,6 +17,7 @@ function update() {
 }
 
 function draw() {
+
   r.ClearBackground(r.RAYWHITE); 
   r.DrawText("VIKE In Node_Raylib", 400, 400, 48, r.MAROON); 
 }
