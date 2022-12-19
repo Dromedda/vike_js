@@ -7,7 +7,7 @@ function create_obj_2d(type, name, x, y, w, h) {
   obj.name = name;
 	obj.func = type;
   objects.push(obj);
-  console.log("VIKE::Object Available:: ");
+  console.log("VIKE::Object Available::" + obj.name + obj.name);
   console.table(obj);
   return obj;
 }

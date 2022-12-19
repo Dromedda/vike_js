@@ -13,7 +13,6 @@ let move_speed_og = move_speed;
 let facing_dir = 1;
 let isCarryingSomething = false;
 
-// is called on initialization.
 function init(p) {
   player = p;
 }
@@ -28,7 +27,7 @@ function update() {
 	
 	player.x += move_dir.x * move_speed; 
 	player.y += move_dir.y * move_speed;  
-
+ 
 	shadow.x += (player.x + (facing_dir * 16) - shadow.x) / 2; 
 	shadow.y += (player.y - shadow.y) / 2;
 }
@@ -82,5 +81,4 @@ function draw() {
 	
 }
 
-// Export the functions for init, update and draw so that we can use it elsewhere.
 module.exports = {init, update, draw}; 

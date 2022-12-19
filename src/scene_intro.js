@@ -5,7 +5,6 @@ let timer = 120;
 let time = 0;
 
 function init() {
-	console.log("Loaded Intro Scene"); 
 }
 
 function update() {
@@ -17,7 +16,6 @@ function update() {
 }
 
 function draw() {
-
   r.ClearBackground(r.RAYWHITE); 
   r.DrawText("VIKE In Node_Raylib", 400, 400, 48, r.MAROON); 
 }

@@ -9,35 +9,33 @@ function create(name, init, update, draw) {
 		draw : draw
   }; 
 	scenes.push(scene); 
+	console.log("SCENE_HANDLER::Created Scene::" + name); 
 	return scene; 
 }
 
-//init the current scene.
 function init() {
 	get_current().init();
 }
 
-// Calls the update func for the current scene.
 function update() {
 	get_current().update(); 
 }
 
-// Calls the draw func for the current scene.
 function draw() {
 	get_current().draw(); 
 }
 
-// Goto a scene based on its name provided when created.
 function goto(name) {
 	active_scene = get_scene(name).name; 
+	console.log("SCENE_HANDLER::Loading Scene::" + name); 
 	init(); 	
 }
 
-// returns null if no scene with the name provided 
 function get_current() {
 	return get_scene(active_scene); 
 }
 
+// TODOO: There are optmizations to be made here, since this gets called like 2 times per frame.
 function get_scene(name) {
 	for (let i = 0; i < scenes.length; i++) {
 		if (name == scenes[i].name) {

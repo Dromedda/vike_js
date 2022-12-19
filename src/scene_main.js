@@ -3,10 +3,9 @@ const _player = require("./player.js");
 const _sensor = require("./sensor.js");
 const v = require('../vike.js');
 
-let p, f;
+let p, s;
 
 function init() {
-  // Create entities.
 	p = v.create_obj_2d(_player, "player", 200, 200, 64, 64);
 	p.func.init(p);
 
@@ -15,7 +14,6 @@ function init() {
 }
 
 function update() {
-  // Update entities.
   p.func.update();
   s.func.update();
 }
@@ -24,9 +22,7 @@ function draw() {
  	r.ClearBackground(r.RAYWHITE);  
  	r.DrawFPS(4, 4);
 
- 	// Draw the entities.
  	p.func.draw();
  	s.func.draw();
 }
-
 module.exports = {init, update, draw};

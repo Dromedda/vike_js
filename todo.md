@@ -7,6 +7,6 @@
 	- [ ] sprite drawing
 	- [ ] maps 
  
-- ? Editor
+- Editor
 		- [ ] map
 		- [ ] Entities 
