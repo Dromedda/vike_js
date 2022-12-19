@@ -8,11 +8,8 @@ function init() {
 }
 
 function update() {
-	if (time < timer) {
-		time += 1; 
-	} else {
-		scene.goto("main"); 
-	}
+	time++; 
+	if (time > timer) scene.goto("main"); 
 }
 
 function draw() {

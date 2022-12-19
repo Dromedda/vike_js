@@ -11,7 +11,7 @@ function init() {
 	p = v.create_obj_2d(_player, "player", 200, 200, 64, 64);
 	p.func.init(p);
 
-	s = v.create_obj_2d(_sensor, "sensor", 500, 500, 32, 32);
+	s = v.create_obj_2d(_sensor, "sensor", 200, 700, 32, 32);
 	s.func.init(s);
 	
 	b = v.create_obj_2d(_block, "block", 500, 400, 200, 200); 

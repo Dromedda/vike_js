@@ -103,6 +103,6 @@ function draw() {
 			);
 		}
  	}
-}
+} 
 
 module.exports = {init, update, draw}; 
