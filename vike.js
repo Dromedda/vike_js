@@ -3,13 +3,13 @@ const r = require('raylib');
 let objects = []; 
 
 function create_obj_2d(type, name, x, y, w, h) {
-  let obj = r.Rectangle(x, y, w, h);
-  obj.name = name;
+	let obj = r.Rectangle(x, y, w, h);
+	obj.name = name;
 	obj.func = type;
-  objects.push(obj);
-  console.log("VIKE::Object Available::" + obj.name + obj.name);
-  console.table(obj);
-  return obj;
+	objects.push(obj);
+	console.log("VIKE::Object Available::" + obj.name + obj.name);
+	console.table(obj);
+	return obj;
 }
 
 function object_get(name) {
@@ -24,12 +24,12 @@ function object_get(name) {
 // TODO: Add optional Params for offsets for a's position
 function check_collision2d(a, b) {
 	if (
-  	a.x < b.x + b.width &&
-  	a.x + a.width > b.x &&
-  	b.y < a.y + a.width &&
-  	b.y + b.width > a.y
+		a.x < b.x + b.width &&
+		a.x + a.width > b.x &&
+		b.y < a.y + a.width &&
+		b.y + b.width > a.y
 	) {
-  	return true;
+		return true;
 	} else {
 		return false;
 	}

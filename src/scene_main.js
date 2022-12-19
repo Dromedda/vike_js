@@ -3,7 +3,7 @@ const v = require('../vike.js');
 
 const _player = require("./player.js");
 const _sensor = require("./sensor.js");
-const _block  = require("../block.js"); 
+const _block  = require("./block.js"); 
 
 let p, s, b; 
 

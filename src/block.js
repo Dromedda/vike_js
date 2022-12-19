@@ -1,5 +1,5 @@
 const r = require('raylib'); 
-const v = require('./vike.js');  
+const v = require('../vike.js');  
 
 let block; 
 

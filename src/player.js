@@ -10,6 +10,10 @@ let move_dir = { x : 0, y : 0 };
 
 let move_speed = 10; 
 let move_speed_og = move_speed;
+
+let dash_speed = 100; 
+let dash_speed_og = dash_speed; 
+
 let facing_dir = 1;
 let isCarryingSomething = false;
 
@@ -18,13 +22,32 @@ function init(p) {
 }
 
 function update() {
-	move_dir.x = (r.IsKeyDown(r.KEY_RIGHT) - r.IsKeyDown(r.KEY_LEFT)); 
-	move_dir.y = (r.IsKeyDown(r.KEY_DOWN) - r.IsKeyDown(r.KEY_UP)); 
+  let moving_diagonally = false;
 
+  // Set keybindings 
+  let key_left  = (r.IsKeyDown(r.KEY_LEFT)  || r.IsKeyDown(r.KEY_A) || r.IsKeyDown(r.KEY_H)); 
+  let key_right = (r.IsKeyDown(r.KEY_RIGHT) || r.IsKeyDown(r.KEY_D) || r.IsKeyDown(r.KEY_L)); 
+  let key_up    = (r.IsKeyDown(r.KEY_UP)    || r.IsKeyDown(r.KEY_W) || r.IsKeyDown(r.KEY_K)); 
+  let key_down  = (r.IsKeyDown(r.KEY_DOWN)  || r.IsKeyDown(r.KEY_S) || r.IsKeyDown(r.KEY_J)); 
+  
+  // Capture input
+	move_dir.x = (key_right - key_left); 
+  move_dir.y = (key_down  - key_up); 
+  
 	// if we are moving diagonally.
-	if (move_dir.x != 0 && move_dir.y != 0)	move_speed = move_speed_og * 0.7;	
+	if (move_dir.x != 0 && move_dir.y != 0) moving_diagonally = true; 	
 	if (move_dir.x != 0) facing_dir = -move_dir.x; 
+
+  // Dashing and movespeed modifications
+  if (r.IsKeyPressed(r.KEY_LEFT_SHIFT)) {
+    move_speed = dash_speed; 
+    if (moving_diagonally) move_speed = dash_speed * 0.7;
+  } else {
+    move_speed = move_speed_og;
+    if (moving_diagonally) move_speed = move_speed_og * 0.7; 
+  }
 	
+  // apply things
 	player.x += move_dir.x * move_speed; 
 	player.y += move_dir.y * move_speed;  
  
@@ -60,6 +83,8 @@ function draw() {
    	if (r.IsKeyPressed(r.KEY_SPACE)) {
 			isCarryingSomething = !isCarryingSomething;
    	}
+    // if we are carrying something draw a lil text bit for feedback
+    // otherwise display some text to tell the user that they can indeed grab the thing
 		if (isCarryingSomething) {
   		r.DrawText(
     		"Carrying Something",
@@ -78,7 +103,6 @@ function draw() {
 			);
 		}
  	}
-	
 }
 
 module.exports = {init, update, draw}; 
