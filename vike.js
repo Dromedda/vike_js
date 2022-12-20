@@ -32,16 +32,12 @@ function object_get(name) {
 
 // TODO: Add optional Params for offsets for a's position
 function check_collision2d(a, b) {
-	if (
+	return (
 		a.x < b.x + b.width &&
 		a.x + a.width > b.x &&
 		b.y < a.y + a.width &&
 		b.y + b.width > a.y
-	) {
-		return true;
-	} else {
-		return false;
-	}
+	); 
 }
 
 module.exports = {create_obj_2d, check_collision2d, object_get, add_obj};
