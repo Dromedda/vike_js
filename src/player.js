@@ -2,6 +2,20 @@ const r = require('raylib');
 const v = require('../vike.js');
 
 // TODOOO: Make this a class instead.
+const Player = class {
+  constructor(name, x, y) {
+
+  }
+  
+  update() {
+    
+  }
+  
+  draw() {
+    
+  }
+}
+
 
 let player;
 let shadows = []; 
