@@ -1,10 +1,10 @@
 const r = require('raylib');
 const v = require('../vike.js');
 
+// TODOOO: Make this a class instead.
+
 let player;
-
 let shadows = []; 
-
 let shadow   = { x : 0, y : 0 }; 
 let move_dir = { x : 0, y : 0 };
 
@@ -105,4 +105,6 @@ function draw() {
  	}
 } 
 
+// TODOOO: Export a class instead, once the class is done.
+// module.exports = Player; 
 module.exports = {init, update, draw}; 

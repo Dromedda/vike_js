@@ -2,12 +2,21 @@ const r = require('raylib');
 
 let objects = []; 
 
+// Adds the object to the world for future reference.
+function add_obj(_class, _name) {
+	_class.name = _name; 
+	objects.push(_class); 
+	console.log("VIKE::Object Available::" + _name);  
+	console.table(_class);
+}
+
+// TODOOO: This should die, because we are going oop.
 function create_obj_2d(type, name, x, y, w, h) {
 	let obj = r.Rectangle(x, y, w, h);
 	obj.name = name;
 	obj.func = type;
 	objects.push(obj);
-	console.log("VIKE::Object Available::" + obj.name + obj.name);
+	console.log("VIKE::Object Available::" + obj.name);
 	console.table(obj);
 	return obj;
 }
@@ -35,4 +44,4 @@ function check_collision2d(a, b) {
 	}
 }
 
-module.exports = {create_obj_2d, check_collision2d, object_get};
+module.exports = {create_obj_2d, check_collision2d, object_get, add_obj};

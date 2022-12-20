@@ -1,6 +1,8 @@
 const v = require('../vike.js');
 const r = require('raylib');
 
+// TODOOO: Make this a class instead.
+
 let sensor;
 let isCarried = false;
 
@@ -10,7 +12,7 @@ function init(s) {
 
 function update() {
   check_if_carried();
-	if (!isCarried && v.check_collision2d(sensor, v.object_get('block'))) {
+	if (!isCarried && v.check_collision2d(sensor, v.object_get('block1'))) {
 		sensor.x = Math.floor(Math.random() * 800);
 		sensor.y = Math.floor(Math.random() * 600);
 	}
@@ -33,4 +35,6 @@ function check_if_carried(){
 	}
 }
 
+// TODOO: export a class instead.
+// module.exports = Sensor; 
 module.exports = {init, update, draw};
