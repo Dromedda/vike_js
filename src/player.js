@@ -77,7 +77,7 @@ function draw() {
   	player_color
 	);
 
- 	if (v.check_collision2d(player, v.object_get('sensor'))) {
+ 	if (v.check_collision2d(player, v.object_get('sensor1'))) {
    	let draw_pos_x = player.x - player.width;
    	let draw_pos_y = player.y - player.height + 8;
    	if (r.IsKeyPressed(r.KEY_SPACE)) {

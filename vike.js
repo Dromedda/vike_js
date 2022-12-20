@@ -7,7 +7,6 @@ function add_obj(_class, _name) {
 	_class.name = _name; 
 	objects.push(_class); 
 	console.log("VIKE::Object Available::" + _name);  
-	console.table(_class);
 }
 
 // TODOOO: This should die, because we are going oop.
@@ -17,7 +16,6 @@ function create_obj_2d(type, name, x, y, w, h) {
 	obj.func = type;
 	objects.push(obj);
 	console.log("VIKE::Object Available::" + obj.name);
-	console.table(obj);
 	return obj;
 }
 
@@ -30,6 +28,7 @@ function object_get(name) {
 	console.log("VIKE:: Cannot find object");
 }
 
+// TODOOO: VALIDATE A & B!
 // TODO: Add optional Params for offsets for a's position
 function check_collision2d(a, b) {
 	return (
