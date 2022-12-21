@@ -1,23 +1,18 @@
 const r = require('raylib');
 const v = require('../vike.js');
 
-const _player = require("./player.js"); 
+const Player = require("./player.js"); 
 const Sensor = require("./sensor.js");
 const Block = require('./block.js')
 
-let p; 
-
 function init() {
-	p = v.create_obj_2d(_player, "player", 200, 200, 64, 64);
-	p.func.init(p);
-	
+	player = new Player("player", 100, 100); 
 	sensor = new Sensor("sensor1", 200, 200, 32, 32); 
 	block = new Block("block1", 500, 200); 
 }
 
 function update() {
-  p.func.update();
-	
+	player.update(); 	
 	block.update(); 
 	sensor.update(); 
 }
@@ -27,7 +22,7 @@ function draw() {
  	r.DrawFPS(4, 4);
 	
 	block.draw(); 
- 	p.func.draw();
+	player.draw();
 	sensor.draw(); 
 }
 
