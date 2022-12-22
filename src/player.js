@@ -10,7 +10,7 @@ let dash_speed_og = dash_speed;
 let shadow = {x: 0, y: 0}; 
 
 const Player = class {
-  constructor(name, x, y) {
+  constructor(x, y) {
     this.x = x; 
     this.y = y; 
     this.width = 64; 
@@ -18,7 +18,7 @@ const Player = class {
     this.facing_dir = 1; 
     this.isCarryingSomething = false; 
     
-    v.add_obj(this, name); 
+    v.add_obj(this, 'player'); 
   }
   
   update() {
@@ -52,28 +52,17 @@ const Player = class {
   	if (r.IsKeyDown(r.KEY_SPACE)) {
 	  	player_color = r.GREEN;
   	}
-  
-    r.DrawRectangle(
-      shadow.x,
-      shadow.y,
-      64,
-      64,
-      r.BLACK
-    );  
-	  r.DrawRectangle(
-    	this.x,
-    	this.y,
-    	this.width,
-    	this.height,
-    	player_color
-	  );
 
-   	if (v.check_collision2d(this, v.object_get('sensor1'))) {
-     	let draw_pos_x = this.x - this.width;
+   	if (v.check_collision2d(this, v.object_get('sensor'))) {
+      player_color = r.GREEN;
+      let draw_pos_x = this.x - this.width;
      	let draw_pos_y = this.y - this.height + 8;
-     	if (r.IsKeyPressed(r.KEY_SPACE)) {
+      
+      // TODO: This is broken because this is carrying something doesnt always reset
+     	if (r.IsKeyPressed(r.KEY_SPACE) || !v.check_collision2d(this, v.object_get('sensor'))) {
 	  		this.isCarryingSomething = !this.isCarryingSomething;
     	}
+
       // if we are carrying something draw a lil text bit for feedback
       // otherwise display some text to tell the user that they can indeed grab the thing
   		if (this.isCarryingSomething) {
@@ -94,6 +83,22 @@ const Player = class {
 	  		);
 	  	}
  	  }
+    
+    r.DrawRectangle(
+      shadow.x,
+      shadow.y,
+      64,
+      64,
+      r.BLACK
+    );  
+	  r.DrawRectangle(
+    	this.x,
+    	this.y,
+    	this.width,
+    	this.height,
+    	player_color
+	  );    
+
   }
 }
 

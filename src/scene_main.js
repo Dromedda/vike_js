@@ -6,9 +6,9 @@ const Sensor = require("./sensor.js");
 const Block = require('./block.js')
 
 function init() {
-	player = new Player("player", 100, 100); 
-	sensor = new Sensor("sensor1", 200, 200, 32, 32); 
-	block = new Block("block1", 500, 200); 
+	player = new Player(100, 100); 
+	sensor = new Sensor(200, 200, 32, 32); 
+	block = new Block(500, 200); 
 }
 
 function update() {

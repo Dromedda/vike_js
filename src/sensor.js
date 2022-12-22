@@ -2,24 +2,21 @@ const v = require('../vike.js');
 const r = require('raylib');
 
 const Sensor = class {
-	constructor(name, x, y, w, h) {
+	constructor(x, y, w, h) {
 		this.x = x; 
 		this.y = y; 
 		this.width = w;  
 		this.height = h; 
-		this.name = name; 
 		this.isCarried = false; 
-		v.add_obj(this, name); 
+		v.add_obj(this, 'sensor'); 
 	}
 	
 	update() {
 		this.check_if_carried(); 
-		if (!this.isCarried && v.check_collision2d(this, v.object_get('block1'))) {
+		if (!this.isCarried && v.check_collision2d(this, v.object_get('block'))) {
 			this.x = Math.floor(Math.random() * 1200); 
 			this.y = Math.floor(Math.random() * 500); 
-
 		}
-		
 	}
 	
 	draw() {

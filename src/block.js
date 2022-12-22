@@ -2,7 +2,7 @@ const r = require('raylib');
 const v = require('../vike.js');  
 
 const Block = class {
-  constructor(name, x, y) {
+  constructor(x, y) {
     this.x = x; 
     this.y = y; 
     this.width = 128; 
@@ -10,7 +10,7 @@ const Block = class {
     this.color = r.BLUE;
     
     // TODOO: this is quite ugly, and it should just be like (v.create_obj2d(this, name))
-    v.add_obj(this, name); 
+    v.add_obj(this, 'block'); 
   }
 
   update() {

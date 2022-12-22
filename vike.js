@@ -19,13 +19,17 @@ function create_obj_2d(type, name, x, y, w, h) {
 	return obj;
 }
 
+// TODOOO: this only returns the first result
+// this is problematic if there is multiple instances of a object.
 function object_get(name) {
+	let ret; 
 	for(let i = 0; i < objects.length; i++) {
 		if (objects[i].name == name) {
-			return objects[i]; 
+			ret = objects[i]; 
 		}
 	}
-	console.log("VIKE:: Cannot find object");
+	if (ret == undefined) console.log("VIKE:: Cannot find object");
+	return ret; 
 }
 
 // TODOOO: VALIDATE A & B!
