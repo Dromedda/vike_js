@@ -9,7 +9,6 @@ const Block = class {
     this.height = 128; 
     this.color = r.BLUE;
     
-    // TODOO: this is quite ugly, and it should just be like (v.create_obj2d(this, name))
     v.add_obj(this, 'block'); 
   }
 

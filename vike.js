@@ -5,42 +5,38 @@ let objects = [];
 // Adds the object to the world for future reference.
 function add_obj(_class, _name) {
 	_class.name = _name; 
+	_class.id = generate_unique_id(); 
 	objects.push(_class); 
 	console.log("VIKE::Object Available::" + _name);  
 }
 
-// TODOOO: This should die, because we are going oop.
-function create_obj_2d(type, name, x, y, w, h) {
-	let obj = r.Rectangle(x, y, w, h);
-	obj.name = name;
-	obj.func = type;
-	objects.push(obj);
-	console.log("VIKE::Object Available::" + obj.name);
-	return obj;
-}
-
-// TODOOO: this only returns the first result
+// TODO: this only returns the first result
 // this is problematic if there is multiple instances of a object.
-function object_get(name) {
+function object_get(name, id = -1) {
 	let ret; 
 	for(let i = 0; i < objects.length; i++) {
 		if (objects[i].name == name) {
 			ret = objects[i]; 
 		}
 	}
+
 	if (ret == undefined) console.log("VIKE:: Cannot find object");
 	return ret; 
 }
 
-// TODOOO: VALIDATE A & B!
-// TODO: Add optional Params for offsets for a's position
-function check_collision2d(a, b) {
+// TODO: add validation
+function check_collision2d(a, b, aox = 0, aoy = 0, box = 0, boy = 0) {
 	return (
-		a.x < b.x + b.width &&
-		a.x + a.width > b.x &&
-		b.y < a.y + a.width &&
-		b.y + b.width > a.y
+		a.x + aox < b.x + box + b.width &&
+		a.x + aox + a.width > b.x + box &&
+		b.y + boy < a.y + aoy + a.width &&
+		b.y + boy + b.width > a.y + aoy
 	); 
 }
 
-module.exports = {create_obj_2d, check_collision2d, object_get, add_obj};
+function generate_unique_id() {
+	return Date.now().toString(36) + Math.random().toString(36).substr(2);
+}
+
+// TODOO: make this a class instead.
+module.exports = {check_collision2d, object_get, add_obj};

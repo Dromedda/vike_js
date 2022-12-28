@@ -2,6 +2,7 @@ let scenes = [];
 let active_scene = ""; 
 let previously_searched_for_scene = {name: ""}; 
 
+// TODO:  Do we really need to pass each flow function?
 function create(name, init, update, draw) {
   let scene = {
 		name : name, 
@@ -9,6 +10,20 @@ function create(name, init, update, draw) {
 		update : update, 
 		draw : draw
   }; 
+	scenes.push(scene); 
+	console.log("SCENE_HANDLER::Created Scene::" + name); 
+	return scene; 
+}
+
+// TODO: TEST THIS WIP
+// temp function to check how possible it is to do.
+function createe(name, _class) {
+	let scene = {
+		name : name, 
+		init : _class.init(),
+		update : _class.update(),
+		draw : _class.draw()
+	}
 	scenes.push(scene); 
 	console.log("SCENE_HANDLER::Created Scene::" + name); 
 	return scene; 
@@ -37,19 +52,15 @@ function get_current() {
 }
 
 function get_scene(name) {
-	// we do this if the scene has not changes since previous call. 
 	if (previously_searched_for_scene.name === name) {
 		return previously_searched_for_scene; 
 	}
-	
-	// If the scene has changes go through the list of known scenes. 
 	for (let i = 0; i < scenes.length; i++) {
 		if (name == scenes[i].name) {
 			previously_searched_for_scene = scenes[i]; 
 			return scenes[i]; 
 		}
 	}
-	
 	console.log("VIKE::SCENE_HANDLER::CANNOT FIND SCENE"); 
 }
 

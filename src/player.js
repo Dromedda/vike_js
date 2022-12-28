@@ -38,7 +38,7 @@ const Player = class {
     
     move_speed = move_speed_og; 
     if (moving_diagonally) move_speed = move_speed_og * 0.7; 
-    
+   
     this.x += move_dir.x * move_speed; 
     this.y += move_dir.y * move_speed; 
     
@@ -57,31 +57,6 @@ const Player = class {
       player_color = r.GREEN;
       let draw_pos_x = this.x - this.width;
      	let draw_pos_y = this.y - this.height + 8;
-      
-      // TODO: This is broken because this is carrying something doesnt always reset
-     	if (r.IsKeyPressed(r.KEY_SPACE) || !v.check_collision2d(this, v.object_get('sensor'))) {
-	  		this.isCarryingSomething = !this.isCarryingSomething;
-    	}
-
-      // if we are carrying something draw a lil text bit for feedback
-      // otherwise display some text to tell the user that they can indeed grab the thing
-  		if (this.isCarryingSomething) {
-    		r.DrawText(
-      		"Carrying Something",
-      		draw_pos_x,
-      		draw_pos_y,
-      		28,
-      		r.BLACK
-    		);
-	  	} else {
-	  		r.DrawText(
-    			"Press Space to grab this thing",
-    			draw_pos_x,
-    			draw_pos_y,
-    			28,
-    			r.BLACK
-	  		);
-	  	}
  	  }
     
     r.DrawRectangle(
@@ -97,7 +72,7 @@ const Player = class {
     	this.width,
     	this.height,
     	player_color
-	  );    
+	  );
 
   }
 }

@@ -12,8 +12,7 @@ const Sensor = class {
 	}
 	
 	update() {
-		this.check_if_carried(); 
-		if (!this.isCarried && v.check_collision2d(this, v.object_get('block'))) {
+		if (!this.check_if_carried() && v.check_collision2d(this, v.object_get('block'))) {
 			this.x = Math.floor(Math.random() * 1200); 
 			this.y = Math.floor(Math.random() * 500); 
 		}
@@ -33,7 +32,9 @@ const Sensor = class {
 		if (this.isCarried) {
 			this.x = player.x + (player.width / 4);
 			this.y = player.y + (player.height / 4);
+			return true; 
 		}
+		return false; 
 	}
 }
 
