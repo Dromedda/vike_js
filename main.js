@@ -1,6 +1,7 @@
 const r = require('raylib');
 
-const scene = require('./comps/scene_handler.js'); 
+// import the scenes and scene_handler
+const scene = require('./comps/scene_handler.js');
 const main_scene = require('./src/scene_main.js'); 
 const intro_scene = require('./src/scene_intro.js'); 
 const menu_scene = require('./src/scene_menu.js'); 
@@ -8,7 +9,9 @@ const menu_scene = require('./src/scene_menu.js');
 const screenWidth = 1400; 
 const screenHeight = 800;
 
+// the main function.
 function main() {
+  // Main on Init.
 	r.InitWindow(screenWidth, screenHeight, "Vike_js"); 
 	r.SetTargetFPS(60); 
 
@@ -19,9 +22,11 @@ function main() {
 	scene.goto("intro"); 
 
 	while(!r.WindowShouldClose()) {
-  	scene.update(); 
+  	// Main update.
+  	scene.update();
 
-		r.BeginDrawing(); 
+		// Main draw.
+		r.BeginDrawing();
 			scene.draw(); 
 		r.EndDrawing(); 
 	}

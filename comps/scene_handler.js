@@ -29,6 +29,7 @@ function createe(name, _class) {
 	return scene; 
 }
 
+// -- Flow -- //
 function init() {
 	get_current().init();
 }
@@ -41,6 +42,7 @@ function draw() {
 	get_current().draw(); 
 }
 
+// Goes to a scene, and calls that scenes init function, if the scene can be found.
 function goto(name) {
 	active_scene = get_scene(name).name; 
 	console.log("SCENE_HANDLER::Loading Scene::" + name); 
@@ -51,6 +53,7 @@ function get_current() {
 	return get_scene(active_scene); 
 }
 
+// returns the scene with the name applied, if there is one.
 function get_scene(name) {
 	if (previously_searched_for_scene.name === name) {
 		return previously_searched_for_scene; 
