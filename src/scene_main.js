@@ -9,7 +9,6 @@ function init() {
 	player = new Player(100, 100);
 	sensor = new Sensor(200, 200, 32, 32);
 	block = new Block(500, 200);
-	console.table(Math); 
 }
 
 function update() {

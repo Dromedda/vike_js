@@ -24,7 +24,7 @@ const Player = class {
   update() {
     let moving_diagonally = false; 
     let move_dir = {x: 0, y: 0}; 
-
+    
     // grab user input
     let key_left  = (r.IsKeyDown(r.KEY_LEFT)  || r.IsKeyDown(r.KEY_A) || r.IsKeyDown(r.KEY_H)); 
     let key_right = (r.IsKeyDown(r.KEY_RIGHT) || r.IsKeyDown(r.KEY_D) || r.IsKeyDown(r.KEY_L)); 
@@ -42,6 +42,14 @@ const Player = class {
     move_speed = move_speed_og; 
     if (moving_diagonally) move_speed = move_speed_og * 0.7; 
 
+    // clamp the player to the screen
+    let targetX = move_dir.x * move_speed; 
+    let targetY = move_dir.y * move_speed; 
+    
+    // Clamp player to the screen.
+    if (this.x + targetX > (r.GetScreenWidth() - this.width) || this.x + targetX < 0) { move_dir.x = 0; }
+    if (this.y + targetY > (r.GetScreenHeight() - this.height) || this.y + targetY < 0) { move_dir.y = 0; }
+    
    	// apply movement.
     this.x += move_dir.x * move_speed;
     this.y += move_dir.y * move_speed; 

@@ -9,9 +9,6 @@ function init() {}
 function update() {
   let mouse_pos = {x : r.GetMouseX(),y : r.GetMouseY(), width : 4, height: 4};
 
-	console.log(r.GetMouseX()); 
-	console.log(r.GetMouseY()); 
-
 	if (v.check_collision2d(mouse_pos, StartButton)) {
 		scene.goto("main"); 		
 	}

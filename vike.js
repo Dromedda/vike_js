@@ -10,6 +10,11 @@ function add_obj(_class, _name) {
 	console.log("VIKE::Object Available::" + _name);  
 }
 
+// just a wrapper for console.log, because who can be bothered to type console.log everytime.
+function log(str) {
+	console.log("VIKE::LOG::" + str); 
+}
+
 // TODO: this only returns the first result
 // this is problematic if there is multiple instances of a object.
 function object_get(name, id = -1) {
@@ -39,4 +44,4 @@ function generate_unique_id() {
 }
 
 // TODOO: make this a class instead.
-module.exports = {check_collision2d, object_get, add_obj};
+module.exports = {check_collision2d, object_get, add_obj, log};
