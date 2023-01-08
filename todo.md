@@ -19,5 +19,5 @@
 	- [ ] raylib bindings for drawing and window, etc.
 
 - Editor
-		- [ ] map
-		- [ ] Entities 
+	- [ ] map
+	- [ ] Entities 

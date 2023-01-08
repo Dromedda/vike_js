@@ -15,20 +15,6 @@ function create(name, init, update, draw) {
 	return scene; 
 }
 
-// TODO: TEST THIS WIP
-// temp function to check how possible it is to do.
-function createe(name, _class) {
-	let scene = {
-		name : name, 
-		init : _class.init(),
-		update : _class.update(),
-		draw : _class.draw()
-	}
-	scenes.push(scene); 
-	console.log("SCENE_HANDLER::Created Scene::" + name); 
-	return scene; 
-}
-
 // -- Flow -- //
 function init() {
 	get_current().init();

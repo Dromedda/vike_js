@@ -10,6 +10,12 @@ function add_obj(_class, _name) {
 	console.log("VIKE::Object Available::" + _name);  
 }
 
+function init_window(win) {
+	console.log("VIKE::Initialized Window.." + win.title); 
+	r.InitWindow(win.width, win.height, win.title);; 
+	r.SetTargetFPS(win.targetFPS); 
+}
+
 // Create a vector2
 function vec2(v1, v2) {
 	return {x: v1, y: v2}; 
@@ -68,4 +74,4 @@ function generate_unique_id() {
 }
 
 // TODOO: make this a class instead.
-module.exports = {check_collision2d, object_get, add_obj, log,clamp_obj_to_screen, vec2};
+module.exports = {check_collision2d, object_get, add_obj, log,clamp_obj_to_screen, vec2, init_window};
