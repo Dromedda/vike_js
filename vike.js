@@ -10,6 +10,30 @@ function add_obj(_class, _name) {
 	console.log("VIKE::Object Available::" + _name);  
 }
 
+// Create a vector2
+function vec2(v1, v2) {
+	return {x: v1, y: v2}; 
+}
+
+// returns a vector 3
+function vec3(v1, v2, v3) {
+	return {x: v1, y: v2, z: v3}; 
+}
+
+// Clamps the pos vec2 to the screen.
+// ent requires x,y,width,height props.
+function clamp_obj_to_screen(ent, pos, spd) {
+	// TODOO: This is not perfect, its still kinda iffy. 
+    let targetX = pos.x * spd; 
+    let targetY = pos.y * spd; 
+    
+    // Clamp player to the screen.
+    if (ent.x + targetX > (r.GetScreenWidth() - ent.width) || ent.x + targetX < 0) { pos.x = 0; }
+    if (ent.y + targetY > (r.GetScreenHeight() - ent.height) || ent.y + targetY < 0) { pos.y = 0; }
+	
+	return pos; 
+}
+
 // just a wrapper for console.log, because who can be bothered to type console.log everytime.
 function log(str) {
 	console.log("VIKE::LOG::" + str); 
@@ -44,4 +68,4 @@ function generate_unique_id() {
 }
 
 // TODOO: make this a class instead.
-module.exports = {check_collision2d, object_get, add_obj, log};
+module.exports = {check_collision2d, object_get, add_obj, log,clamp_obj_to_screen, vec2};

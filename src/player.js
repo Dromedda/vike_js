@@ -7,7 +7,7 @@ let move_speed_og = move_speed;
 let dash_speed = 100; 
 let dash_speed_og = dash_speed; 
 
-let shadow = {x: 0, y: 0}; 
+let shadow = v.vec2(0, 0); 
 
 const Player = class {
   constructor(x, y) {
@@ -23,7 +23,7 @@ const Player = class {
   
   update() {
     let moving_diagonally = false; 
-    let move_dir = {x: 0, y: 0}; 
+    let move_dir = v.vec2(0, 0); 
     
     // grab user input
     let key_left  = (r.IsKeyDown(r.KEY_LEFT)  || r.IsKeyDown(r.KEY_A) || r.IsKeyDown(r.KEY_H)); 
@@ -39,17 +39,13 @@ const Player = class {
     if (move_dir.x != 0 && move_dir.y != 0) moving_diagonally = true; 
     if (move_dir.x != 0) this.facing_dir = move_dir.x; 
     
+    // Normalize movement if we are moving diagonally
     move_speed = move_speed_og; 
     if (moving_diagonally) move_speed = move_speed_og * 0.7; 
 
-    // clamp the player to the screen
-    let targetX = move_dir.x * move_speed; 
-    let targetY = move_dir.y * move_speed; 
-    
-    // Clamp player to the screen.
-    if (this.x + targetX > (r.GetScreenWidth() - this.width) || this.x + targetX < 0) { move_dir.x = 0; }
-    if (this.y + targetY > (r.GetScreenHeight() - this.height) || this.y + targetY < 0) { move_dir.y = 0; }
-    
+    //clamp the movement to the screen.
+    move_dir = v.clamp_obj_to_screen(this, move_dir, move_speed); 
+
    	// apply movement.
     this.x += move_dir.x * move_speed;
     this.y += move_dir.y * move_speed; 
