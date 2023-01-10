@@ -85,5 +85,4 @@ const Player = class {
   }
 }
 
-// export the Player class.
 module.exports = Player; 

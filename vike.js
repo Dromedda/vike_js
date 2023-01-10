@@ -23,7 +23,6 @@ Vike.vec2 = function(v1, v2) {
 // Clamps the pos vec2 to the screen.
 // ent requires x,y,width,height props.
 Vike.clamp_obj_to_screen = function(ent, pos, spd) {
-	// TODOO: This is not perfect, its still kinda iffy. 
     let targetX = pos.x * spd; 
     let targetY = pos.y * spd; 
     
