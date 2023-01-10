@@ -2,8 +2,9 @@ let scenes = [];
 let active_scene = ""; 
 let previously_searched_for_scene = {name: ""}; 
 
-// TODO:  Do we really need to pass each flow function?
-function create(name, init, update, draw) {
+const SceneHandler = {}; 
+
+SceneHandler.create = function(name, init, update, draw) {
   let scene = {
 		name : name, 
 		init : init, 
@@ -16,31 +17,31 @@ function create(name, init, update, draw) {
 }
 
 // -- Flow -- //
-function init() {
-	get_current().init();
+SceneHandler.init = function() {
+	this.get_current().init();
 }
 
-function update() {
-	get_current().update(); 
+SceneHandler.update = function() {
+	this.get_current().update(); 
 }
 
-function draw() {
-	get_current().draw(); 
+SceneHandler.draw = function() {
+	this.get_current().draw(); 
 }
 
 // Goes to a scene, and calls that scenes init function, if the scene can be found.
-function goto(name) {
-	active_scene = get_scene(name).name; 
+SceneHandler.goto = function (name) {
+	active_scene = this.get_scene(name).name; 
 	console.log("SCENE_HANDLER::Loading Scene::" + name); 
-	init(); 	
+	this.init(); 	
 }
 
-function get_current() {
-	return get_scene(active_scene); 
+SceneHandler.get_current = function() {
+	return this.get_scene(active_scene); 
 }
 
 // returns the scene with the name applied, if there is one.
-function get_scene(name) {
+SceneHandler.get_scene = function(name) {
 	if (previously_searched_for_scene.name === name) {
 		return previously_searched_for_scene; 
 	}
@@ -53,4 +54,4 @@ function get_scene(name) {
 	console.log("VIKE::SCENE_HANDLER::CANNOT FIND SCENE"); 
 }
 
-module.exports = {create, init, update, draw, goto};
+module.exports = SceneHandler; 
