@@ -32,5 +32,4 @@ function main() {
 	}
 	r.CloseWindow();
 }
-
 main(); 
