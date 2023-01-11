@@ -4,9 +4,6 @@ const v = require('../vike.js');
 let move_speed = 10; 
 let move_speed_og = move_speed; 
 
-let dash_speed = 100; 
-let dash_speed_og = dash_speed; 
-
 let shadow = v.vec2(0, 0); 
 
 const Player = class {

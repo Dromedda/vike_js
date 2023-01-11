@@ -7,6 +7,8 @@ const Block = require('./block.js')
 
 const SceneMain = {}; 
 
+let player, sensor, block; 
+
 let camera_pos = v.vec2(0, 0); 
 let camera_offset = v.vec2(0, 0); 
 const camera = v.camera_init(camera_offset, camera_pos, 0, 1); 
@@ -18,7 +20,7 @@ SceneMain.init = function() {
 }
 
 SceneMain.update = function() {
-	v.camera_goto(camera, v.vec2(player.x, player.y)); 
+	v.camera_goto(camera, v.vec2(player.x, player.y), 16); 
 	player.update();
 	block.update();
 	sensor.update();

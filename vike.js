@@ -24,10 +24,9 @@ Vike.log = function(str) {
 	console.log("VIKE::LOG::" + str); 
 }
 
-// TODOO: Might just wanna make the camera var local to vike, making it easier
+// TODOO: Might just wanna make the camera var local to vike, making it easier to use,
 // however will limit the amount of cameras to 1.
-// offset and target are vec2's! 
-Vike.camera_init = function(offset, target, rotation, scale) {
+Vike.camera_init = function(offset = vec2(0, 0), target = vec2(0, 0), rotation = 0, scale = 1) {
 	let camera = r.Camera2D(offset, target, rotation, scale); 
 	return camera; 
 }
@@ -41,10 +40,14 @@ Vike.camera_unset = function() {
 	r.EndMode2D(); 
 }
 
-// TODO: implement smoothing. 
-Vike.camera_goto = function(camera, pos) {
-	// TODO: validate Camera
-	camera.target = pos; 
+Vike.camera_goto = function(camera, pos, smoothing=1) {
+	let to = {
+		x: pos.x - camera.target.x,
+		y: pos.y - camera.target.y
+	}; 
+
+	camera.target.x += (to.x) / smoothing; 
+	camera.target.y += (to.y) / smoothing; 
 }
 
 Vike.camera_centered = function(camera) {

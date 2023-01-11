@@ -7,9 +7,8 @@
   "description": "a thing i made on top of node-raylib",
   "main": "main.js",
   "dependencies": {
-    "raylib": "*"
+    "raylib": "^0.12.0"
   },
-  "devDependencies": {},
   "keywords": [
     "raylib",
     "template",
