@@ -57,10 +57,10 @@ Vike.camera_centered = function(camera) {
 
 // TODO: this only returns the first result
 // this is problematic if there is multiple instances of a object.
-Vike.object_get = function(name, id = -1) {
+Vike.object_get = function(name) {
 	let ret; 
 	for(let i = 0; i < objects.length; i++) {
-		if (objects[i].name == name) {
+		if (objects[i].name === name) {
 			ret = objects[i]; 
 		}
 	}
