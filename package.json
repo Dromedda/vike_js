@@ -4,7 +4,7 @@
   },
   "name": "vike_js",
   "version": "0.0.1",
-  "description": "a thing i made on top of node-raylib",
+  "description": "a simple template for node-raylib",
   "main": "main.js",
   "dependencies": {
     "raylib": "*"
@@ -19,6 +19,6 @@
     "dev",
     "vike"
   ],
-  "author": "Erik 'Dromedda' Gustafsson",
+  "author": "Erik Gustafsson",
   "license": "MIT"
 }
