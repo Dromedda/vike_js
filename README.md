@@ -9,6 +9,6 @@ npm install
 ```
 npm start
 ```
+---
 
-Uses Node-Raylib for things :)
-https://github.com/RobLoach/node-raylib 
+[Uses Node-Raylib for things 😃](https://github.com/RobLoach/node-raylib)
