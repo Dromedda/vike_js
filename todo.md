@@ -15,6 +15,7 @@
 	- [ ] sprite drawing
 	- [ ] maps 
 	- [ ] raylib bindings for drawing and window, etc.
+	- [ ] fmod support.
 
 - Editor
 	- [ ] map
