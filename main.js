@@ -17,9 +17,9 @@ const window = {
 function main() {
 	v.init_window(window); 
 
-	scene.create("menu", menu_scene.init, menu_scene.update, menu_scene.draw); 
-	scene.create("intro", intro_scene.init, intro_scene.update, intro_scene.draw); 
-	scene.create("main", main_scene.init, main_scene.update, main_scene.draw); 
+	scene.create("menu", menu_scene); 
+	scene.create("intro", intro_scene); 
+	scene.create("main", main_scene); 
 
 	scene.goto("intro"); 
 
@@ -32,4 +32,4 @@ function main() {
 	}
 	r.CloseWindow();
 }
-main(); 
+main();

@@ -14,9 +14,7 @@ const Player = class {
     this.height = 64; 
     this.facing_dir = 1; 
     this.isCarryingSomething = false; 
-    
-    v.add_obj(this, 'player'); 
-  }
+}
   
   update() {
     let moving_diagonally = false; 

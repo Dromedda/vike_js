@@ -4,13 +4,14 @@ let previously_searched_for_scene = {name: ""};
 
 const SceneHandler = {}; 
 
-SceneHandler.create = function(name, init, update, draw) {
-  let scene = {
-		name : name, 
-		init : init, 
-		update : update, 
-		draw : draw
-  }; 
+SceneHandler.create = function(name, _scene) {
+	let scene = {
+		name: name, 
+		init: _scene.init, 
+		update: _scene.update, 
+		draw: _scene.draw
+	}; 
+
 	scenes.push(scene); 
 	console.log("SCENE_HANDLER::Created Scene::" + name); 
 	return scene; 

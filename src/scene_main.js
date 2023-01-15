@@ -13,9 +13,9 @@ let camera_offset = v.vec2(0, 0);
 const camera = v.camera_init(camera_offset, camera_pos, 0, 1); 
 
 SceneMain.init = function() {
-	player = new Player(100, 100);
-	sensor = new Sensor(200, 200, 32, 32);
-	block = new Block(500, 200);
+	player = v.add_obj(new Player(100, 100), 'player'); 
+	sensor = v.add_obj(new Sensor(200, 200, 32, 32), 'sensor');
+	block = v.add_obj(new Block(500, 200), 'block'); 
 }
 
 SceneMain.update = function() {

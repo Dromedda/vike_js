@@ -13,6 +13,7 @@
 	- [x] Collisions, 
 	- [x] object handling 
 	- [ ] sprite drawing
+		it seems quite easy todo using raylib textures.
 	- [ ] maps 
 	- [ ] raylib bindings for drawing and window, etc.
 	- [ ] fmod support.

@@ -14,6 +14,7 @@ Vike.add_obj = function(_class, _name) {
 	_class.id = generate_unique_id(); 
 	objects.push(_class); 
 	console.log("VIKE::Object Available::" + _name);  
+	return _class; 
 }
 
 Vike.vec2 = function(v1, v2) {
