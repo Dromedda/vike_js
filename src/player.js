@@ -39,7 +39,7 @@ const Player = class {
     if (moving_diagonally) move_speed = move_speed_og * 0.7; 
 
     //clamp the movement to the screen.
-    move_dir = v.clamp_obj_to_screen(this, move_dir, move_speed); 
+    //move_dir = v.clamp_obj_to_screen(this, move_dir, move_speed); 
 
    	// apply movement.
     this.x += move_dir.x * move_speed;

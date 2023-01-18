@@ -1,4 +1,5 @@
 const r = require('raylib');
+const scene_handler = require('./comps/scene_handler.js');
 
 const Vike = {};
 let objects = []; 
@@ -33,6 +34,40 @@ Vike.load_sprite = function(path = null) {
 
 Vike.draw_sprite = function(spr, posx, posy, col) {
 	r.DrawTexture(spr, posx, posy, col); 
+}
+
+Vike.create_anim = function(spr, name, xpos, ypos, cellx, celly, frame_count) {
+	let anim = {
+		id: name, 
+		spr: spr, 
+		frame_count: frame_count,
+		sizex: cellx,
+		sizey: celly,
+		posx: 0, 
+		posy: 0, 
+		frame: 0,
+		frame_time: 0,
+		x: xpos, 
+		y: ypos,
+		width: cellx,
+		height: celly,
+		update: function(frame_duration) {
+			this.posx = this.frame*this.spr.width/this.frame_count; 
+			if (this.frame_time == frame_duration) {
+				this.frame_time = 0; 
+				(this.frame < this.frame_count)? this.frame += 1 : this.frame = 0;
+			} else {
+				this.frame_time += 1; 
+			}
+		},
+		draw: function() {
+			r.DrawTextureRec( this.spr, 
+											{ x: this.posx, y: this.posy, width: this.sizex, height: this.sizey}, 
+											{ x: this.x, y: this.y}, 
+											  r.WHITE); 
+		}
+	}; 
+	return anim;
 }
 
 // TODOO: Might just wanna make the camera var local to vike, making it easier to use,
