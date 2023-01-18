@@ -1,5 +1,6 @@
 # Issues: 
 - Cant have multiple instances of one object.
+- Building does not include the assets folder. 
 
 # Notes: 
 
@@ -13,6 +14,7 @@
 	- [x] Collisions, 
 	- [x] object handling 
 	- [ ] sprite drawing
+	- [ ] 2d animations. 
 		it seems quite easy todo using raylib textures.
 	- [ ] maps 
 	- [ ] raylib bindings for drawing and window, etc.

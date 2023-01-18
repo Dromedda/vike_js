@@ -16,6 +16,7 @@ SceneMain.init = function() {
 	player = v.add_obj(new Player(100, 100), 'player'); 
 	sensor = v.add_obj(new Sensor(200, 200, 32, 32), 'sensor');
 	block = v.add_obj(new Block(500, 200), 'block'); 
+	sprite = v.load_sprite('./assets/square.png'); 
 }
 
 SceneMain.update = function() {
@@ -33,6 +34,7 @@ SceneMain.draw = function() {
 	block.draw();
 	player.draw();
 	sensor.draw();
+	v.draw_sprite(sprite, 0, 0, r.WHITE); 
 	v.camera_unset(); 
  	r.DrawFPS(4, 4);
 }
