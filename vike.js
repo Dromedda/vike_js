@@ -61,10 +61,9 @@ Vike.create_anim = function(spr, name, xpos, ypos, cellx, celly, frame_count) {
 			}
 		},
 		draw: function(x = this.x, y = this.y) {
-			r.DrawTextureRec( this.spr, 
-											{ x: this.posx, y: this.posy, width: this.sizex, height: this.sizey}, 
-											{ x: x, y: y}, 
-											  r.WHITE); 
+			let pos = {x: x, y: y}; 
+			let cell = {x: this.posx, y: this.posy, width: this.sizex, height: this.sizey}; 
+			r.DrawTextureRec( this.spr,	cell, pos, r.WHITE ); 
 		}
 	}; 
 	return anim;
