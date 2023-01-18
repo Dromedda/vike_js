@@ -53,17 +53,17 @@ Vike.create_anim = function(spr, name, xpos, ypos, cellx, celly, frame_count) {
 		height: celly,
 		update: function(frame_duration) {
 			this.posx = this.frame*this.spr.width/this.frame_count; 
-			if (this.frame_time == frame_duration) {
+			if (this.frame_time >= frame_duration) {
 				this.frame_time = 0; 
 				(this.frame < this.frame_count)? this.frame += 1 : this.frame = 0;
 			} else {
 				this.frame_time += 1; 
 			}
 		},
-		draw: function() {
+		draw: function(x = this.x, y = this.y) {
 			r.DrawTextureRec( this.spr, 
 											{ x: this.posx, y: this.posy, width: this.sizex, height: this.sizey}, 
-											{ x: this.x, y: this.y}, 
+											{ x: x, y: y}, 
 											  r.WHITE); 
 		}
 	}; 

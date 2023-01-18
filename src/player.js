@@ -3,6 +3,7 @@ const v = require('../vike.js');
 
 let move_speed = 10; 
 let move_speed_og = move_speed; 
+let sprite;
 
 let shadow = v.vec2(0, 0); 
 
@@ -14,7 +15,8 @@ const Player = class {
     this.height = 64; 
     this.facing_dir = 1; 
     this.isCarryingSomething = false; 
-}
+    sprite = v.create_anim(v.load_sprite('./assets/square_animation-sheet.png'), 'player_anim', 0, 0, 64, 64, 12); 
+  }
   
   update() {
     let moving_diagonally = false; 
@@ -48,20 +50,11 @@ const Player = class {
     // apply movement for the shadow
     shadow.x += (this.x - (this.facing_dir * 16) - shadow.x) / 2; 
     shadow.y += (this.y - shadow.y) / 2; 
+
+    sprite.update(2); 
   }
   
   draw() {
-    let player_color = r.MAROON; 
-
-  	if (r.IsKeyDown(r.KEY_SPACE)) {
-	  	player_color = r.GREEN;
-  	}
-
-		// if we are colliding with the sensor set our color to green.
-   	if (v.check_collision2d(this, v.object_get('sensor'))) {
-      player_color = r.GREEN;
- 	  }
-    
     r.DrawRectangle(
       shadow.x,
       shadow.y,
@@ -70,13 +63,7 @@ const Player = class {
       r.BLACK
     );
 
-	  r.DrawRectangle(
-    	this.x,
-    	this.y,
-    	this.width,
-    	this.height,
-    	player_color
-	  );
+    sprite.draw(this.x, this.y); 
   }
 }
 
