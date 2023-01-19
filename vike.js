@@ -4,7 +4,7 @@ const scene_handler = require('./comps/scene_handler.js');
 const Vike = {};
 let objects = []; 
 
-Vike.init_window = function(win) {
+Vike.init_window = function(win = {title: 'vike - js', width: 800, height: 400, targetfps: 30}) {
 	console.log("VIKE::Initialized Window.." + win.title); 
 	r.InitWindow(win.width, win.height, win.title);; 
 	r.SetTargetFPS(win.targetFPS); 
