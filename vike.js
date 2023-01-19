@@ -1,13 +1,12 @@
 const r = require('raylib');
-const scene_handler = require('./comps/scene_handler.js');
 
 const Vike = {};
 let objects = []; 
 
-Vike.init_window = function(win = {title: 'vike - js', width: 800, height: 400, targetfps: 30}) {
+Vike.init_window = function(win = {title: 'vike - js', width: 800, height: 400, targetFPS: 30}) {
 	console.log("VIKE::Initialized Window.." + win.title); 
 	r.InitWindow(win.width, win.height, win.title);; 
-	r.SetTargetFPS(win.targetfps); 
+	r.SetTargetFPS(win.targetFPS); 
 } 
 
 Vike.add_obj = function(_class, _name) {
@@ -51,8 +50,10 @@ Vike.create_anim = function(spr, name, xpos, ypos, cellx, celly, frame_count) {
 		y: ypos,
 		width: cellx,
 		height: celly,
+		paused: false,
 		update: function(frame_duration) {
 			this.posx = this.frame*this.spr.width/this.frame_count; 
+			if (this.paused) return -1;
 			if (this.frame_time >= frame_duration) {
 				this.frame_time = 0; 
 				(this.frame < this.frame_count)? this.frame += 1 : this.frame = 0;
@@ -64,6 +65,9 @@ Vike.create_anim = function(spr, name, xpos, ypos, cellx, celly, frame_count) {
 			let pos = {x: x, y: y}; 
 			let cell = {x: this.posx, y: this.posy, width: this.sizex, height: this.sizey}; 
 			r.DrawTextureRec( this.spr,	cell, pos, r.WHITE ); 
+		},
+		pause: function(bool = true) {
+			this.paused = bool; 
 		}
 	}; 
 	return anim;

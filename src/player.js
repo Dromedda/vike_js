@@ -48,7 +48,11 @@ const Player = class {
     shadow.x += (this.x - (this.facing_dir * 16) - shadow.x) / 2; 
     shadow.y += (this.y - shadow.y) / 2; 
 
-    sprite.update(2); 
+    sprite.update(1); 
+
+    if(r.IsKeyPressed(r.KEY_Q)) sprite.pause(); 
+    if(r.IsKeyPressed(r.KEY_E)) sprite.pause(false); 
+    
   }
   
   draw() {
