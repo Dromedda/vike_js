@@ -33,6 +33,7 @@ SceneMain.draw = function() {
 	block.draw();
 	player.draw();
 	sensor.draw();
+	v.camera_unset(); 
  	r.DrawFPS(4, 4);
 }
 

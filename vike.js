@@ -69,8 +69,6 @@ Vike.create_anim = function(spr, name, xpos, ypos, cellx, celly, frame_count) {
 	return anim;
 }
 
-// TODOO: Might just wanna make the camera var local to vike, making it easier to use,
-// however will limit the amount of cameras to 1.
 Vike.camera_init = function(offset = vec2(0, 0), target = vec2(0, 0), rotation = 0, scale = 1) {
 	let camera = r.Camera2D(offset, target, rotation, scale); 
 	return camera; 
