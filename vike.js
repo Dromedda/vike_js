@@ -21,12 +21,23 @@ Vike.vec2 = function(v1, v2) {
 	return{x:v1, y:v2}; 
 }
 
+Vike.vec3 = function(v1, v2, v3) {
+	return{x: v1, y: v2, z: v3}; 
+}
+
+Vike.dt = function(mult = 1) {
+	return (r.GetFrameTime() * mult); 
+}
+
+Vike.log_frame_time = function() {
+	r.DrawText(this.dt() + '', 4, 24, 12, r.DARKGREEN); 
+}
+
 Vike.log = function(str) {
 	console.log("VIKE::LOG::" + str); 
 }
 
 Vike.load_sprite = function(path = null) {
-	this.log("Tried loading a sprite, which isnt implemented yet..."); 
 	let ret = r.LoadTexture(path); 
 	return ret;
 }

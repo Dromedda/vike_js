@@ -16,6 +16,7 @@ SceneMain.init = function() {
 	player = v.add_obj(new Player(100, 100), 'player'); 
 	sensor = v.add_obj(new Sensor(200, 200, 32, 32), 'sensor');
 	block = v.add_obj(new Block(500, 200), 'block'); 
+	v.log(r.Vector3)
 }
 
 SceneMain.update = function() {
@@ -35,6 +36,7 @@ SceneMain.draw = function() {
 	sensor.draw();
 	v.camera_unset(); 
  	r.DrawFPS(4, 4);
+	v.log_frame_time();
 }
 
 module.exports = SceneMain; 
