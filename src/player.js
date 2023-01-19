@@ -3,7 +3,6 @@ const v = require('../vike.js');
 
 let move_speed = 10; 
 let move_speed_og = move_speed; 
-let sprite;
 
 let shadow = v.vec2(0, 0); 
 
@@ -15,7 +14,7 @@ const Player = class {
     this.height = 64; 
     this.facing_dir = 1; 
     this.isCarryingSomething = false; 
-    sprite = v.create_anim(v.load_sprite('./assets/square_animation-sheet.png'), 'player_anim', 0, 0, 64, 64, 12); 
+    this.sprite = v.create_anim(v.load_sprite('./assets/square_animation-sheet.png'), 'player_anim', 0, 0, 64, 64, 12); 
   }
   
   update() {
@@ -48,11 +47,11 @@ const Player = class {
     shadow.x += (this.x - (this.facing_dir * 16) - shadow.x) / 2; 
     shadow.y += (this.y - shadow.y) / 2; 
 
-    sprite.update(1); 
+    this.sprite.update(1); 
 
-    if(r.IsKeyPressed(r.KEY_Q)) sprite.pause(); 
-    if(r.IsKeyPressed(r.KEY_E)) sprite.pause(false); 
-    
+    if(r.IsKeyPressed(r.KEY_Q)) this.sprite.pause(); 
+    if(r.IsKeyPressed(r.KEY_E)) this.sprite.pause(false); 
+    if(r.IsKeyPressed(r.KEY_R)) this.sprite.frame = 2; 
   }
   
   draw() {
@@ -64,7 +63,7 @@ const Player = class {
       r.BLACK
     );
 
-    sprite.draw(this.x, this.y); 
+    this.sprite.draw(this.x, this.y); 
   }
 }
 

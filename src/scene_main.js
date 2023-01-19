@@ -16,7 +16,6 @@ SceneMain.init = function() {
 	player = v.add_obj(new Player(100, 100), 'player'); 
 	sensor = v.add_obj(new Sensor(200, 200, 32, 32), 'sensor');
 	block = v.add_obj(new Block(500, 200), 'block'); 
-	v.log(r.Vector3)
 }
 
 SceneMain.update = function() {
