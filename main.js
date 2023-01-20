@@ -20,7 +20,6 @@ function main() {
 	scene.create("menu", menu_scene); 
 	scene.create("intro", intro_scene); 
 	scene.create("main", main_scene); 
-
 	scene.goto("intro"); 
 
 	while(!r.WindowShouldClose()) {
