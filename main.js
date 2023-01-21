@@ -1,9 +1,10 @@
 const r = require('raylib');
 
 // import the scenes and scene_handler
-const scene = require('./comps/scene_handler.js');
-const v = require('./vike.js'); 
-const scene_birf = require('./src/scene_birf');
+const scene = require('./comps/scene_handler');
+const v = require('./vike'); 
+const scene_intro = require('./src/scenes/scene_intro');
+const scene_main = require('./src/scenes/scene_main');
 
 const window = {
 	height: 800, 
@@ -15,9 +16,10 @@ const window = {
 function main() {
 	v.init_window(window); 
 
-	scene.create('birf', scene_birf); 
-	scene.goto('birf');
-
+	scene.create('intro', scene_intro);
+	scene.create('main', scene_main);
+	scene.goto('intro');
+	
 	while(!r.WindowShouldClose()) {
   	scene.update();
 

@@ -1,5 +1,5 @@
 const r = require('raylib');
-const v = require('../vike');
+const v = require('../../vike');
 
 const SceneDev = {};	
 

@@ -1,4 +1,4 @@
-const v = require('../vike.js');
+const v = require('../../vike.js');
 const r = require('raylib');
 
 const Sensor = class {

@@ -1,5 +1,5 @@
 const r = require('raylib'); 
-const scene = require('../comps/scene_handler.js'); 
+const scene = require('../../comps/scene_handler.js'); 
 
 let timer = 30; 
 let time = 0;

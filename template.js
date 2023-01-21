@@ -1,5 +1,5 @@
 const r = require('raylib');
-const v = require('./vike');
+const v = require('./vike.js');
 const scene = require('./comps/scene_handler.js');	
 const scene_example = require('./src/scenes/scene_example.js');
 

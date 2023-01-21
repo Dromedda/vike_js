@@ -1,9 +1,9 @@
 const r = require('raylib');
-const v = require('../vike.js');
+const v = require('../../vike');
 
-const Player = require("./player.js");
-const Sensor = require("./sensor.js");
-const Block = require('./block.js')
+const Player = require("../objects/player.js");
+const Sensor = require("../objects/sensor.js");
+const Block = require('../objects/block')
 
 const SceneMain = {}; 
 

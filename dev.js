@@ -1,7 +1,7 @@
 const r = require('raylib');
 const v = require('./vike.js');
 const scene = require('./comps/scene_handler.js');	
-const scene_dev = require('./src/scene_dev.js');
+const scene_dev = require('./src/scenes/scene_dev.js');
 
 const window = {
 	height: 900,
