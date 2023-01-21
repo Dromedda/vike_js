@@ -1,7 +1,9 @@
 {
   "scripts": {
     "start": "node main.js",
-    "build": "pkg main.js  --target node10"
+    "build": "pkg main.js  --target node10",
+    "dev": "node dev.js",
+    "example": "node example.js"
   },
   "name": "vike_js",
   "version": "0.0.1",
