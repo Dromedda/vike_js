@@ -17,7 +17,7 @@ npm run main
 npm run build
 ```
 
-# Planned Features: 
+## Planned Features: 
 - [ ] Sprites & Animations
 - [ ] Sound
 - [ ] Tiled Import, Optionally a map editor.
