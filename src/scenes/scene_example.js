@@ -3,11 +3,12 @@ const v = require('../../vike');
 
 const Player = {
 	x: 800,
-	y: 450,
+	y: 450
 };
 
 Player.init  = function() {
-	this.spr = v.create_anim(v.load_sprite('./assets/square_animation-sheet.png'), 'player_anim', 0, 0, 64, 64, 12);
+	const texture = v.load_sprite('./assets/square_animation-sheet.png'); 
+	this.spr = v.create_anim(texture, 'player_anim', 0, 0, 64, 64, 12);
 }
 
 Player.update = function() {
@@ -33,6 +34,7 @@ Player.update = function() {
 
 	this.x += move_dir.x * move_speed; 
 	this.y += move_dir.t * move_speed; 
+
 	this.spr.update(1);
 }
 
