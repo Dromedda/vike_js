@@ -18,14 +18,10 @@ npm run build
 ```
 
 # Planned Features: 
-/ = In progress
-x = completed
-- = abandoned ( for now )
-
-- [/] Sprites & Animations
+- [ ] Sprites & Animations
 - [ ] Sound
 - [ ] Tiled Import, Optionally a map editor.
-- [/] Scene Management 
+- [ ] Scene Management 
 - [ ] A simple Math lib.
 ---
 
