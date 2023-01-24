@@ -30,6 +30,11 @@ SceneHandler.draw = function() {
 	this.get_current().draw(); 
 }
 
+SceneHandler.destory = function() {
+	// TODO: uncomment 
+	//this.get_current().destroy();
+}
+
 // Goes to a scene, and calls that scenes init function, if the scene can be found.
 SceneHandler.goto = function (name) {
 	active_scene = this.get_scene(name).name; 
