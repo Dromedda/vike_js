@@ -51,4 +51,7 @@ SceneMain.draw = function() {
 	v.log_frame_time();
 }
 
+SceneMain.destroy = function() {
+}
+
 module.exports = SceneMain; 

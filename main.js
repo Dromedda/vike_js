@@ -27,6 +27,7 @@ function main() {
 			scene.draw(); 
 		r.EndDrawing(); 
 	}
+	//scene.destory();
 	r.CloseWindow();
 }
 main();
