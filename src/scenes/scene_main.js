@@ -21,6 +21,7 @@ SceneMain.init = function() {
 	block = v.add_obj(new Block(500, 200), 'block'); 
 
 	for (let i = 0; i < 20; i++) {
+		// creates a new sensor at randomized location within the screen res.
 		sensors.push(v.add_obj(new Sensor(Math.random() * r.GetScreenWidth(), Math.random() * r.GetScreenHeight(), 32, 32), 'sensor'+i)); 
 	}
 }

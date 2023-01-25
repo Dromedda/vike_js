@@ -62,6 +62,7 @@ Vike.create_anim = function(spr, name, xpos, ypos, cellx, celly, frame_count) {
 		width: cellx,
 		height: celly,
 		paused: false,
+
 		update: function(frame_duration) {
 			this.posx = this.frame*this.spr.width/this.frame_count; 
 			if (this.paused) return -1;
@@ -72,15 +73,18 @@ Vike.create_anim = function(spr, name, xpos, ypos, cellx, celly, frame_count) {
 				this.frame_time += 1; 
 			}
 		},
+
 		draw: function(x = this.x, y = this.y) {
 			let pos = {x: x, y: y}; 
 			let cell = {x: this.posx, y: this.posy, width: this.sizex, height: this.sizey}; 
 			r.DrawTextureRec( this.spr,	cell, pos, r.WHITE ); 
 		},
+
 		pause: function(bool = true) {
 			this.paused = bool; 
 		}
 	}; 
+
 	return anim;
 }
 

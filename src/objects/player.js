@@ -4,8 +4,6 @@ const v = require('../../vike.js');
 let move_speed = 10; 
 let move_speed_og = move_speed; 
 
-let shadow = v.vec2(0, 0); 
-
 const Player = class {
   constructor(x, y) {
     this.x = x; 
@@ -43,10 +41,6 @@ const Player = class {
     this.x += move_dir.x * move_speed;
     this.y += move_dir.y * move_speed; 
 
-    // apply movement for the shadow
-    shadow.x += (this.x - (this.facing_dir * 16) - shadow.x) / 2; 
-    shadow.y += (this.y - shadow.y) / 2; 
-
     this.sprite.update(1); 
 
     if(r.IsKeyPressed(r.KEY_Q)) this.sprite.pause(); 
@@ -55,14 +49,6 @@ const Player = class {
   }
   
   draw() {
-    r.DrawRectangle(
-      shadow.x,
-      shadow.y,
-      64,
-      64,
-      r.BLACK
-    );
-
     this.sprite.draw(this.x, this.y); 
   }
 }
