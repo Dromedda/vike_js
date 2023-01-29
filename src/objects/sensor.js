@@ -8,7 +8,6 @@ const Sensor = class {
 		this.width = w;  
 		this.height = h; 
 		this.isCarried = false; 
-		v.add_obj(this, 'sensor'); 
 	}
 	
 	update() {

@@ -15,7 +15,7 @@ const Player = class {
     this.sprite = v.create_anim(v.load_sprite('./assets/square_animation-sheet.png'), 'player_anim', 0, 0, 64, 64, 12); 
   }
   
-  update() {
+  update(dt) {
     let move_dir = v.vec2(0, 0); 
     
     // grab user input
@@ -48,8 +48,8 @@ const Player = class {
     }
 
    	// apply movement.
-    this.x += move_dir.x * move_speed;
-    this.y += move_dir.y * move_speed; 
+    this.x += move_dir.x * move_speed * dt;
+    this.y += move_dir.y * move_speed * dt; 
 
     this.sprite.update(1); 
 

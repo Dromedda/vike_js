@@ -1,4 +1,5 @@
 # Issues: 
+- Counter is broken.
 - Cant have multiple instances of one object.
 - Building does not include the assets folder. 
 	prettu sure there was something in the pkg docs about that

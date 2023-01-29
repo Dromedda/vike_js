@@ -17,6 +17,18 @@ Vike.add_obj = function(_class, _name) {
 	return _class; 
 }
 
+Vike.update = function(dt) {
+	for (let i = 0; i < objects.length; i++) {
+		objects[i].update(dt);
+	}
+}
+
+Vike.draw = function() {
+	for (let i = 0; i < objects.length; i++) {
+		objects[i].draw();
+	}
+}
+
 Vike.vec2 = function(v1, v2) {
 	return{x:v1, y:v2}; 
 }
