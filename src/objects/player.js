@@ -16,26 +16,36 @@ const Player = class {
   }
   
   update() {
-    let moving_diagonally = false; 
     let move_dir = v.vec2(0, 0); 
     
     // grab user input
-    let key_left  = (r.IsKeyDown(r.KEY_LEFT)  || r.IsKeyDown(r.KEY_A) || r.IsKeyDown(r.KEY_H)); 
-    let key_right = (r.IsKeyDown(r.KEY_RIGHT) || r.IsKeyDown(r.KEY_D) || r.IsKeyDown(r.KEY_L)); 
-    let key_up    = (r.IsKeyDown(r.KEY_UP)    || r.IsKeyDown(r.KEY_W) || r.IsKeyDown(r.KEY_K)); 
-    let key_down  = (r.IsKeyDown(r.KEY_DOWN)  || r.IsKeyDown(r.KEY_S) || r.IsKeyDown(r.KEY_J)); 
+    let key_left  = ( r.IsKeyDown(r.KEY_LEFT)  || 
+                      r.IsKeyDown(r.KEY_A) || 
+                      r.IsKeyDown(r.KEY_H)); 
+
+    let key_right = ( r.IsKeyDown(r.KEY_RIGHT) || 
+                      r.IsKeyDown(r.KEY_D) || 
+                      r.IsKeyDown(r.KEY_L)); 
+
+    let key_up    = ( r.IsKeyDown(r.KEY_UP)    || 
+                      r.IsKeyDown(r.KEY_W) || 
+                      r.IsKeyDown(r.KEY_K)); 
+
+    let key_down  = ( r.IsKeyDown(r.KEY_DOWN)  || 
+                      r.IsKeyDown(r.KEY_S) || 
+                      r.IsKeyDown(r.KEY_J)); 
 
     // decide where to go based on the user input.
     move_dir.x = key_right - key_left; 
     move_dir.y = key_down - key_up; 
 
     // check if we are moving diagonally.
-    if (move_dir.x != 0 && move_dir.y != 0) moving_diagonally = true; 
-    if (move_dir.x != 0) this.facing_dir = move_dir.x; 
-    
-    // Normalize movement if we are moving diagonally
     move_speed = move_speed_og; 
-    if (moving_diagonally) move_speed = move_speed_og * 0.7; 
+
+    if (move_dir.x != 0 && move_dir.y != 0) {
+      move_speed = move_speed_og * 0.707; 
+      this.facing_dir = move_dir.x;
+    }
 
    	// apply movement.
     this.x += move_dir.x * move_speed;
@@ -49,6 +59,8 @@ const Player = class {
   }
   
   draw() {
+    let outline_stroke = 2;
+    r.DrawRectangle(this.x-outline_stroke, this.y- outline_stroke, 64 + (outline_stroke*2), 64 + (outline_stroke*2), r.BLACK);
     this.sprite.draw(this.x, this.y); 
   }
 }
