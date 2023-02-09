@@ -1,5 +1,7 @@
 # Vike - Raylib
 
+Vike Is currently being ported to LUA using love2d and as such this node version will no longer recieve updates ( i might do something with it at some point ) but for now this project is put on hold :/
+
 A very simple wrapper engine for node-raylib
 
 ## To install run:
